@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 90%; /* スマートフォンでも画面幅に応じて調整 */
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 1.8rem; /* スマートフォンで読みやすく */
+}
+
+button {
+  padding: 15px 20px; /* ボタンを指で押しやすく大きく */
+  font-size: 1.2rem;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#theorem-container {
+  margin-top: 20px;
+  display: none;
+  text-align: left; /* 内容を左揃えにして読みやすく */
+}
+
+#theorem-title {
+  font-size: 1.5rem;
+}
+
+#theorem-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+#theorem-image {
+  max-width: 100%; /* 画面幅に収まるよう調整 */
+  height: auto; /* アスペクト比を維持 */
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* スマートフォン用メディアクエリ */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px 15px;
+  }
+
+  #theorem-title {
+    font-size: 1.2rem;
+  }
+
+  #theorem-description {
+    font-size: 1rem;
+  }
+}
