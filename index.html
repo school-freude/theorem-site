@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>英語学習補助サイト</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英語学習補助サイト</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>英語学習補助サイト</h1>
-    <form id="login-form">
-      <input type="text" id="username" placeholder="ユーザー名" required>
-      <input type="email" id="email" placeholder="メールアドレス" required>
-      <button type="submit">ログイン / 新規登録</button>
-    </form>
-    <input type="text" id="nameInput" placeholder="名前">
-<button id="registerButton">ユーザー登録</button>
-    <p id="login-message"></p>
-  </div>
-  <script src="app.js"></script>
+    <div class="container">
+        <h1>英語学習補助サイト</h1>
+
+        <!-- ログインフォーム -->
+        <section id="login-section">
+            <h2>ログイン</h2>
+            <label for="userIdInput">ユーザーID:</label>
+            <input type="text" id="userIdInput" placeholder="ユーザーIDを入力">
+            <label for="passwordInput">パスワード:</label>
+            <input type="password" id="passwordInput" placeholder="パスワードを入力">
+            <button id="loginButton">ログイン</button>
+        </section>
+
+        <!-- ユーザー登録フォーム -->
+        <section id="register-section">
+            <h2>新規登録</h2>
+            <label for="nameInput">名前:</label>
+            <input type="text" id="nameInput" placeholder="名前を入力">
+            <label for="userIdInputRegister">ユーザーID:</label>
+            <input type="text" id="userIdInputRegister" placeholder="ユーザーIDを入力">
+            <label for="passwordInputRegister">パスワード:</label>
+            <input type="password" id="passwordInputRegister" placeholder="パスワードを入力">
+            <button id="registerButton">登録</button>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
