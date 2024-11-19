@@ -70,6 +70,8 @@ async function register(userId, password, name) {
     });
 
     if (!appendResponse.ok) {
+        const errorData = await appendResponse.json(); // エラー詳細を取得
+        console.error("APIエラー:", errorData); // コンソールにエラー表示
         throw new Error("ユーザー登録に失敗しました");
     }
 
