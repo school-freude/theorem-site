@@ -1,3 +1,21 @@
+// app.js の先頭に以下を追加
+(async function testApiAccess() {
+    const SPREADSHEET_ID = "1lXoqvTh4Kp-g6e2YzZFWavgx7HPOkgRVOZthW98L0mY";
+    const API_KEY = "AIzaSyDHa1pl2WMMcLlssWIdnc6zUOhAjioO5q4";
+    const SHEET_NAME = "Users";
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
+        const data = await response.json();
+        console.log("API Response:", data);
+    } catch (error) {
+        console.error("API Test Error:", error);
+    }
+})();
+//ここまで
+
 const SPREADSHEET_ID = "1lXoqvTh4Kp-g6e2YzZFWavgx7HPOkgRVOZthW98L0mY";
 const API_KEY = "AIzaSyDHa1pl2WMMcLlssWIdnc6zUOhAjioO5q4";
 // Google Sheets API URL
