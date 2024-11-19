@@ -1,33 +1,41 @@
 const SPREADSHEET_ID = "1lXoqvTh4Kp-g6e2YzZFWavgx7HPOkgRVOZthW98L0mY";
 const API_KEY = "AIzaSyDHa1pl2WMMcLlssWIdnc6zUOhAjioO5q4";
 
-// ログインフォーム処理
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  
-  const username = document.getElementById('username').value;
-  const email = document.getElementById('email').value;
+// ログイン処理の実装例
+async function login(username, password) {
+    const sheetName = "Users"; // ユーザー情報が格納されたシート名
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${apiKey}`;
 
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Users:append?valueInputOption=USER_ENTERED&key=${API_KEY}`;
-  
-  const data = {
-    values: [[username, email]]
-  };
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
 
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+        if (!data.values || data.values.length < 2) {
+            throw new Error("スプレッドシートに十分なデータがありません");
+        }
 
-    if (response.ok) {
-      localStorage.setItem('username', username); // ログイン状態を保存
-      window.location.href = 'study.html'; // 学習ページに移動
-    } else {
-      document.getElementById('login-message').textContent = "ログインに失敗しました。";
+        // 1行目をヘッダーとして取得
+        const headers = data.values[0]; // 1行目がヘッダー
+        const rows = data.values.slice(1); // 2行目以降がデータ
+
+        // ユーザーの検証
+        const user = rows.find(row => {
+            const record = {};
+            headers.forEach((header, index) => {
+                record[header] = row[index]; // ヘッダーをキーにデータをマッピング
+            });
+            return record.Username === username && record.Password === password;
+        });
+
+        if (user) {
+            console.log("ログイン成功");
+            return true;
+        } else {
+            console.log("ログイン失敗");
+            return false;
+        }
+    } catch (error) {
+        console.error("エラーが発生しました:", error);
+        return false;
     }
-  } catch (error) {
-    console.error(error);
-  }
-});
+}
