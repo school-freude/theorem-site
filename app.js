@@ -93,10 +93,12 @@ document.getElementById("loginButton").addEventListener("click", async () => {
 
 // ユーザー登録ボタンのクリックイベント
 document.getElementById("registerButton").addEventListener("click", async () => {
-    const userId = document.getElementById("userIdInput").value;
-    const password = document.getElementById("passwordInput").value;
-    const name = document.getElementById("nameInput").value;
+    // 各入力フィールドの値を取得
+    const userId = document.getElementById("userIdInputRegister").value.trim();
+    const password = document.getElementById("passwordInputRegister").value.trim();
+    const name = document.getElementById("nameInput").value.trim();
 
+    // 入力値が空でないかを確認
     if (!userId || !password || !name) {
         alert("全てのフィールドを入力してください");
         return;
