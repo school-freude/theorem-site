@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>英語学習補助ページ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>英語学習補助ページ</h1>
+    <p>ボタンを押してランダムに日本語文を表示してください。</p>
+    <button id="show-japanese">和文を表示</button>
+    <div id="japanese-container">
+      <p id="japanese-text"></p>
+    </div>
+    <div id="input-container">
+      <label for="english-input">英訳を入力してください:</label>
+      <input type="text" id="english-input" placeholder="ここに英訳を入力">
+      <button id="check-answer">解答をチェック</button>
+    </div>
+    <div id="result-container">
+      <p id="correct-answer"></p>
+      <p id="result-text"></p>
+    </div>
+    <p><a href="index.html">定理ページに戻る</a></p>
+  </div>
+  <script src="english.js"></script>
+</body>
+</html>
