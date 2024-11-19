@@ -96,6 +96,10 @@ async function register(userId, password, name) {
     return { userId, name };
 }
 
+document.getElementById("loginForm").addEventListener("submit", (event) => {
+    event.preventDefault(); // デフォルトの送信動作を無効化
+});
+
 // ログインボタンのクリックイベント
 document.getElementById("loginButton").addEventListener("click", async () => {
     const userId = document.getElementById("userIdInput").value;
