@@ -1,5 +1,5 @@
-const SPREADSHEET_ID = "YOUR_SPREADSHEET_ID";
-const API_KEY = "YOUR_API_KEY";
+const SPREADSHEET_ID = "1lXoqvTh4Kp-g6e2YzZFWavgx7HPOkgRVOZthW98L0mY";
+const API_KEY = "AIzaSyDHa1pl2WMMcLlssWIdnc6zUOhAjioO5q4";
 
 // ログインフォーム処理
 document.getElementById('login-form').addEventListener('submit', async (event) => {
